@@ -1,2 +1,5 @@
 pyqt5
 mujoco_py
+rospkg
+scipy
+numpy
