@@ -36,7 +36,7 @@ def tracker_callback(msg):
 
 def main():
     global state
-    rospy.init_node('node_name')
+    rospy.init_node('robot_tracker_node')
     for i in range(8):
         rospy.Subscriber("/retarget/robot_tracker" + str(i), matrix_3_4, tracker_callback)
 

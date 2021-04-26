@@ -20,6 +20,7 @@ quat = np.array([1,0,0,0])
 def tracker_callback(msg):
     global state, base_postion, pos, quat, base_raw_pos
     topic_id = int(msg._connection_header["topic"][-1])
+    
     T_raw = np.vstack([np.array(msg.firstRow),
                        np.array(msg.secondRow),
                        np.array(msg.thirdRow),
@@ -36,7 +37,7 @@ def tracker_callback(msg):
 
 def main():
     global state
-    rospy.init_node('node_name')
+    rospy.init_node('raw_tracker_node')
     rospy.Subscriber("/TRACKER0", matrix_3_4, tracker_callback)
     rospy.Subscriber("/TRACKER1", matrix_3_4, tracker_callback)
     rospy.Subscriber("/TRACKER2", matrix_3_4, tracker_callback)
